@@ -1,0 +1,41 @@
+Operacje na Sklepach
+
+/*USER*/
+
+UZYTKOWNIK nie ma dostepu do edycji danych Sklepu.
+UZYTKOWNIK ma prawa do przegladania Danych Sklepu do ktorego nalezy.
+
+/*KIEROWNIK*/
+
+UZYTKOWNIK nie ma dostepu do edycji danych Sklepu.
+UZYTKOWNIK ma prawa do przegladania Danych Sklepu do ktorego nalezy.
+
+/*ADMIN*/
+1) DODAWANIE
+
+UZYTKOWNIK dodajac Sklep wypelnia wszystkie dane o sklepie
+
+PROGRAM sprawdza czy podane dane sa poprawne (Pola tekstowe nie zawieraja cyfr, pola na liczbe nie zawieraja znakow)
+
+DANE POPRAWNE - Program sprawdza czy podany sklep istnieje w bazie(Lokacja)
+
+	SKLEP NIE ISTNIEJE -> sklep zostaje dodany
+	SKLEP ISTNIEJE -> PROGRAM informuje o tym ze istnieje juz taki sklep
+
+DANE NIEPOPRAWNE - PROGRAM informuje o blednych danych
+
+2) EDYCJA
+
+UZYTKOWNIK wybiera Sklep z listy Sklepow
+UZYTKOWNIK edytujac dane sklepie wypelnia tylko pola ktore maja ulec zmianie.
+
+PROGRAM sprawdza czy podane dane sa poprawne (Pola tekstowe nie zawieraja cyfr, pola na liczbe nie zawieraja znakow)
+
+DANE POPRAWNE - Program zmienia dane o sklepie
+DANE NIEPOPRAWNE - PROGRAM informuje o blednych danych
+
+3) USUWANIE
+
+UZYTKOWNIK zaznacza Sklep do usuniecia i wybiera opcje usun
+
+Status sklepu zostaje zmieniony na nieaktywny.

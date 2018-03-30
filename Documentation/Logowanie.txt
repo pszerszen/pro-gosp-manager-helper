@@ -1,0 +1,60 @@
+Logowanie
+
+/*ZWYKLY USER*/
+
+PROCONDITIONS :
+
+1. Konto zostalo utworzone przez ADMINA albo KIEROWNIKA SKLEPU
+2. Hasło do konta zostało nadane przez ADMINA albo KIEROWNIKA SKLEPU
+3. Użytkownik ma status AKTYWNY
+
+PROCEDURE
+
+UZYTKOWNIK podaje poprawne dane -> zostaja mu udostepnione funcjonalnosci podgladania swoich wynikow sprzedazy i dostaw do SKLEPU MACIERZYSTEGO UZYTKOWNIKA
+(Dla wykresow i tabel zawsze ma wlaczony filtr SKLEP i PRACOWNIK z wartosciami odpowiadającymi jego atrybutom)
+
+UZYTKOWNIK podaje niepoprawne dane -> UZYTKOWNIK zostaje poproszony o podanie poprawnych danych
+
+POSTCONDITIONS
+
+UZYTKOWNIK ma dostep do swoich danych a takze moze pisac maile dopoki nie wyloguje sie z APLIKACJI
+
+/*KIEROWNIK SKLEPU*/
+
+PROCONDITIONS :
+
+1. Konto zostalo utworzone przez ADMINA
+2. Hasło do konta zostało nadane przez ADMINA
+3. Użytkownik ma status AKTYWNY
+
+PROCEDURE
+
+UZYTKOWNIK podaje poprawne dane -> zostaja mu udostepnione funcjonalnosci podgladania swoich wynikow sprzedazy i dostaw do SKLEPU MACIERZYSTEGO UZYTKOWNIKA
+(Dla wykresow i tabel zawsze ma wlaczony filtr SKLEP z wartosciami odpowiadającymi jego atrybutom)
+
+UZYTKOWNIK podaje niepoprawne dane -> UZYTKOWNIK zostaje poproszony o podanie poprawnych danych
+
+POSTCONDITIONS
+
+UZYTKOWNIK ma dostep do swoich danych a takze moze pisac maile dopoki nie wyloguje sie z APLIKACJI
+
+/*ADMIN*/ 
+
+PROCONDITIONS :
+
+1. Konto zostalo utworzone przez autora programu
+2. Hasło do konta zostało nadane przez autora programu i przekazane w formie fizycznej adminowi
+
+PROCEDURE
+
+UZYTKOWNIK podaje poprawne dane -> zostaja mu udostepnione wszystkie funcjonalnosci
+
+UZYTKOWNIK podaje niepoprawne dane -> UZYTKOWNIK zostaje poproszony o podanie poprawnych danych
+
+UZYTKOWNIK loguje sie po raz pierwszy -> uzytkownik zostaje poproszony o podanie loginu oraz hasla ktore stana sie loginem i haslem admina.
+Po nadaniu hasla uzytkownik zostaje poproszony o zalogowanie sie przy pomocy nadanego LOGINU i HASLA.
+Dane przekazane w formie fizycznej sluza do resetowania ADMIN'a
+
+POSTCONDITIONS
+
+UZYTKOWNIK ma dostep do swoich danych a takze moze pisac maile dopoki nie wyloguje sie z APLIKACJI

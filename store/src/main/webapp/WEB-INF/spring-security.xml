@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="
+					http://www.springframework.org/schema/beans
+					http://www.springframework.org/schema/beans/spring-beans.xsd
+					http://www.springframework.org/schema/security
+					http://www.springframework.org/schema/security/spring-security.xsd">
+    <!-- NON SECURED -->
+    <http security="none" pattern="/login"/>
+    <http security="none" pattern="**/*.css"/>
+    <http security="none" pattern="**/*.js"/>
+
+    <http auto-config="true" pattern="/**" create-session="ifRequired" once-per-request="true" use-expressions="true" disable-url-rewriting="false">
+
+        <intercept-url pattern="/changePassword/**" access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER','ROLE_USER')"/>
+        <intercept-url pattern="/transactions/**" access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER','ROLE_USER')"/>
+
+        <intercept-url pattern="/users/**" access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')"/>
+        <intercept-url pattern="/messages/**" access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')"/>
+        <intercept-url pattern="/delivery/**" access="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')"/>
+
+        <intercept-url pattern="/products/**" access="hasAnyRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/analysis/**" access="hasAnyRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/simulations/**" access="hasAnyRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/shops/**" access="hasAnyRole('ROLE_ADMIN')"/>
+
+        <access-denied-handler error-page="/401"/>
+
+        <form-login login-page="/login" login-processing-url="/j_spring_security_check" username-parameter="mail" password-parameter="password"
+                    authentication-failure-url="/login?error=1" default-target-url="/login_processor"/>
+
+        <logout delete-cookies="JSESSIONID" logout-url="/logout" logout-success-url="/login"/>
+
+        <csrf disabled="true"/>
+    </http>
+
+    <global-method-security secured-annotations="enabled"/>
+
+    <beans:bean id="loginUrlAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+        <beans:constructor-arg name="loginFormUrl" value="/login"/>
+    </beans:bean>
+
+    <beans:bean id="passwordEncoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder">
+        <beans:constructor-arg name="secret" value="d3e66f5cae1000440fd975cafdd86c4a"/>
+    </beans:bean>
+
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider user-service-ref="authenticator">
+            <password-encoder ref="passwordEncoder"/>
+        </authentication-provider>
+    </authentication-manager>
+</beans:beans>

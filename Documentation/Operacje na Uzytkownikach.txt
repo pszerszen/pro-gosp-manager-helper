@@ -1,0 +1,45 @@
+Operacje na Uzytkownikach
+
+/*USER*/
+
+UZYTKOWNIK nie ma dostepu do edycji danych uzytkownikow.
+UZYTKOWNIK ma prawa do przegladania wlasnych danych.
+
+/*KIEROWNIK*/
+
+Kierownik podczas przegladania i edytowania danych ma dostep tylko do danych PRACOWNIKOW w jego SKLEPIE
+
+1) DODAWANIE
+
+Kierownik dodajac pracownika wypelnia wszystkie dane o pracowniku poza sklepem do ktorego nalezy (Dodaje PRACOWNIKA zawsze do własnego sklepu)
+
+PROGRAM sprawdza czy podane dane sa poprawne (Pola tekstowe nie zawieraja cyfr, pola na liczbe nie zawieraja znakow)
+
+DANE POPRAWNE - Program sprawdza czy podany uzytkownik istnieje w bazie(imie, nazwisko, sklep, email)
+
+	UZYTKOWNIK NIE ISTNIEJE -> uzytkownik zostaje dodany
+	UZYTKOWNIK ISTNIEJE -> PROGRAM informuje o tym ze istnieje juz taki uzytkownik
+
+DANE NIEPOPRAWNE - PROGRAM informuje o blednych danych
+
+2) EDYCJA
+
+KIEROWNIK wybiera uzytkownika z listy pracownikow
+Kierownik edytujac dane pracownika wypelnia tylko pola ktore maja ulec zmianie.
+
+PROGRAM sprawdza czy podane dane sa poprawne (Pola tekstowe nie zawieraja cyfr, pola na liczbe nie zawieraja znakow)
+
+DANE POPRAWNE - Program sprawdza czy podany uzytkownik istnieje w bazie(imie, nazwisko, sklep, email)
+DANE NIEPOPRAWNE - PROGRAM informuje o blednych danych
+
+3) USUWANIE
+
+KIEROWNIK zaznacza uzytkownika do usuniecia i wybiera opcje usun
+
+Program Zastepuje: Imie -> ID_Pracownik i Nazwisko -> ID_Pracownika 
+Status pracownika zostaje zmieniony na nieaktywny.
+
+/*ADMIN*/
+
+ADMIN zawsze wybiera sklep do ktorega trafia pracownik
+Pozostałe procedury związane z edycja danych pracownikow sa identyczne jak w przypadku KIEROWNIKA

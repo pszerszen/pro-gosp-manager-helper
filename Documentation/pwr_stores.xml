@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.4.12
+- https://www.phpmyadmin.net
+-
+- Host: localhost
+- Generation Time: Jan 09, 2016 at 09:37 AM
+- Server version: 10.0.21-MariaDB
+- PHP Version: 5.6.12
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="pwr_stores" collation="utf8_general_ci" charset="utf8">
+            <pma:table name="hibernate_sequence">
+                CREATE TABLE `hibernate_sequence` (
+                  `next_val` bigint(20) DEFAULT NULL
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="products">
+                CREATE TABLE `products` (
+                  `id` bigint(20) NOT NULL,
+                  `model` varchar(100) NOT NULL,
+                  `name` varchar(200) NOT NULL,
+                  `producer` varchar(50) NOT NULL,
+                  `purchase_price` double NOT NULL,
+                  `sales_price` double NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="product_state">
+                CREATE TABLE `product_state` (
+                  `id` bigint(20) NOT NULL,
+                  `quantity` int(11) NOT NULL,
+                  `version` bigint(20) DEFAULT NULL,
+                  `id_product` bigint(20) NOT NULL,
+                  `id_store` bigint(20) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `FKqlne7qr8wipsvjyitn8p44b3x` (`id_product`),
+                  KEY `FK9d8iquvnsry7bvh1rhh5rnpfx` (`id_store`),
+                  CONSTRAINT `FK9d8iquvnsry7bvh1rhh5rnpfx` FOREIGN KEY (`id_store`) REFERENCES `store` (`id`),
+                  CONSTRAINT `FKqlne7qr8wipsvjyitn8p44b3x` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="roles">
+                CREATE TABLE `roles` (
+                  `id` bigint(20) NOT NULL,
+                  `role_name` varchar(20) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  UNIQUE KEY `UK_716hgxp60ym1lifrdgp67xt5k` (`role_name`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="staff">
+                CREATE TABLE `staff` (
+                  `id` bigint(20) NOT NULL,
+                  `active` bit(1) NOT NULL,
+                  `bonus` double DEFAULT NULL,
+                  `date_from` date NOT NULL,
+                  `date_until` date DEFAULT NULL,
+                  `first_name` varchar(30) NOT NULL,
+                  `last_name` varchar(50) NOT NULL,
+                  `salary` int(11) NOT NULL,
+                  `id_store` bigint(20) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `FK9qvu7v30rqp25ssvtyumf3vp9` (`id_store`),
+                  CONSTRAINT `FK9qvu7v30rqp25ssvtyumf3vp9` FOREIGN KEY (`id_store`) REFERENCES `store` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="store">
+                CREATE TABLE `store` (
+                  `id` bigint(20) NOT NULL,
+                  `address` varchar(200) NOT NULL,
+                  `name` varchar(200) NOT NULL,
+                  `phone` varchar(30) NOT NULL,
+                  `type` tinyint(4) NOT NULL,
+                  `active` bit(1) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="supplys">
+                CREATE TABLE `supplys` (
+                  `id` bigint(20) NOT NULL,
+                  `date` datetime NOT NULL,
+                  `status` tinyint(4) NOT NULL,
+                  `id_product` bigint(20) NOT NULL,
+                  `id_receiver` bigint(20) NOT NULL,
+                  `quantity` int(11) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `FKik7u5rn4o6bv625o1gjyxrfp4` (`id_product`),
+                  KEY `FKj0lo7q9lt19bv0xdgbs6gw7q7` (`id_receiver`),
+                  CONSTRAINT `FKik7u5rn4o6bv625o1gjyxrfp4` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`),
+                  CONSTRAINT `FKj0lo7q9lt19bv0xdgbs6gw7q7` FOREIGN KEY (`id_receiver`) REFERENCES `store` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="transactions">
+                CREATE TABLE `transactions` (
+                  `id` bigint(20) NOT NULL,
+                  `date` datetime NOT NULL,
+                  `quantity` int(11) NOT NULL,
+                  `id_product` bigint(20) NOT NULL,
+                  `id_staff` bigint(20) NOT NULL,
+                  `id_store` bigint(20) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  KEY `FK3ogu2acw5ymul6o0k9n3p12d6` (`id_product`),
+                  KEY `FK5t0x2op68s9dw2aft11el40da` (`id_staff`),
+                  KEY `FKsff92hnpfud8bay1ig63m9fd6` (`id_store`),
+                  CONSTRAINT `FK3ogu2acw5ymul6o0k9n3p12d6` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`),
+                  CONSTRAINT `FK5t0x2op68s9dw2aft11el40da` FOREIGN KEY (`id_staff`) REFERENCES `staff` (`id`),
+                  CONSTRAINT `FKsff92hnpfud8bay1ig63m9fd6` FOREIGN KEY (`id_store`) REFERENCES `store` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="users">
+                CREATE TABLE `users` (
+                  `id` bigint(20) NOT NULL,
+                  `mail` varchar(30) NOT NULL,
+                  `password` varchar(255) NOT NULL,
+                  `id_staff` bigint(20) DEFAULT NULL,
+                  `active` bit(1) NOT NULL,
+                  PRIMARY KEY (`id`),
+                  UNIQUE KEY `UK_jhck7kjdogc7yia7qamc89ypv` (`mail`),
+                  KEY `FK3sw9f20bo1wjv8bx2xpr35fmq` (`id_staff`),
+                  CONSTRAINT `FK3sw9f20bo1wjv8bx2xpr35fmq` FOREIGN KEY (`id_staff`) REFERENCES `staff` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="user_roles">
+                CREATE TABLE `user_roles` (
+                  `id_user` bigint(20) NOT NULL,
+                  `id_role` bigint(20) NOT NULL,
+                  PRIMARY KEY (`id_user`,`id_role`),
+                  KEY `FK1v995xldvmr6w96c5feofx1gf` (`id_role`),
+                  CONSTRAINT `FK1v995xldvmr6w96c5feofx1gf` FOREIGN KEY (`id_role`) REFERENCES `roles` (`id`),
+                  CONSTRAINT `FK9ihrn1kwsu0a99doxpm7jbkdb` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+</pma_xml_export>

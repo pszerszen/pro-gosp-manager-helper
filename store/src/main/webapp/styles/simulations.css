@@ -1,0 +1,32 @@
+.section-row {
+	padding-top: 30px;
+}
+
+.small-row {
+	padding-top: 10px;
+}
+
+.date-row {
+	padding-top: 50px;
+}
+
+.left-side {
+	height: 370px;
+}
+
+.right-side {
+	height: 180px;
+}
+
+.tabbed {
+	width: 310px;
+	height: 320px;
+}
+
+.filter-tab {
+	font-size: smaller;
+}
+
+.add-chart, .remove-chart, .save-chart{
+	font-size: small;
+}

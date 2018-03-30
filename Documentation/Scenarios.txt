@@ -1,0 +1,152 @@
+//************************** Pisanie Maila *******************************/
+
+1) Loguje sie jako dowolny uzytkownik
+2) Wybieram zakładke z Mailem
+3) Wprowadzam mail adresata (OPCJONALNIE : Autouzupełanianie z Bazy Mailowej pracownikow)
+4) Wprowadzam mail CC (OPCJONALNIE : Autouzupełanianie z Bazy Mailowej pracownikow)
+5) Wprowadzam tresc maila ( w przypadku zamkniecia aplikacji tresc maila nie powinna byc zapisana )
+6) Wciskam SEND - mail zostaje wyslany na adresy docelowe
+
+//************************** Logowanie  *******************************/
+
+Zachowanie opisane w innnym pliku
+
+1) Otwieram Aplikacjie
+2) Wprowadzam moje dane użytkownika
+3) klikam ENTER APPLICATION
+
+//************************** OPERACJE NA REKORDACH *******************************/
+Wszystkie scenariusze zakladaja ze uzytkownik wykonujacy operacjie jest zalogowany 
+
+KTO CO MOZE : 
+
+ADD
+---------------------------------------------------------------------
+| zakladka         |    WORKER      |    SHOP MANAGER     | ADMIN   |
+|-------------------------------------------------------------------|
+| SHOP             |                |                     |    X    |
+|-------------------------------------------------------------------|
+| WORKERS          |                |         X           |    X    |
+|-------------------------------------------------------------------|
+| PRODUCTS         |                |                     |    X    |
+|-------------------------------------------------------------------|
+| TRANSACTION      |       X        |         X           |    X    |
+|-------------------------------------------------------------------|
+| DELIVERY         |                |         X           |    X    |
+|-------------------------------------------------------------------|
+
+EDIT
+---------------------------------------------------------------------
+| zakladka         |    WORKER      |    SHOP MANAGER     | ADMIN   |
+|-------------------------------------------------------------------|
+| SHOP             |                |                     |    X    |
+|-------------------------------------------------------------------|
+| WORKERS          |                |         X           |    X    |
+|-------------------------------------------------------------------|
+| PRODUCTS         |                |                     |    X    |
+|-------------------------------------------------------------------|
+| TRANSACTION      |        X       |         X           |    X    |
+|-------------------------------------------------------------------|
+| DELIVERY         |                | X Only not DONE     |    X    |
+|-------------------------------------------------------------------|
+
+REMOVE
+---------------------------------------------------------------------
+| zakladka         |    WORKER      |    SHOP MANAGER     | ADMIN   |
+|-------------------------------------------------------------------|
+| SHOP             |                |                     |    X    |
+|-------------------------------------------------------------------|
+| WORKERS          |                |         X           |    X    |
+|-------------------------------------------------------------------|
+| PRODUCTS         |  Produktow nie mozna usuwac                    |
+|-------------------------------------------------------------------|
+| TRANSACTION      |       X        |         X           |    X    |
+|-------------------------------------------------------------------|
+| DELIVERY         |                | X Only not DONE     |    X    |
+|-------------------------------------------------------------------|
+
+ADD -
+1) wybieram interesujaca mnie zakladke
+2) wybieram opcje ADD
+3) Pojawia sie oknow kontekstowe / zostaje przeniesiony na podstrone z dodawaniem (Jak łatwiej jest zrobic)
+4) Wypełniam wszystkie Dane 
+5) Klikam OK
+6) rekord zostaje dodany do bazy
+
+Jesli jakies pole pozostaje puste LUB nie spelnia wymagan dotyczacych validity check'a  Zostaje poinformowany ze wprowadzone dane nie sa poprawne
+
+EDIT -
+1) Wybieram interesujaca mnie zakladke 
+2) Wpisuje w wyszukiwarke interesujace mnie dane (Wykonanie wyszukiwania bez podanych danych powoduje wyswietlenie listy wszystkich rekordow DLA : SKLEPOW, PRACOWNIKOW. PRODUKTOW)
+
+---------------------------------------------------------------------
+| zakladka         |    Przeszukiwane Pola                          |
+|-------------------------------------------------------------------|
+| SHOP             |   Adres, Nazwa                                 |
+|-------------------------------------------------------------------|
+| WORKERS          |  IMIE, NAZWISKO                                |
+|-------------------------------------------------------------------|
+| PRODUCTS         |  MODEL, NAZWA, Producent                       |
+|-------------------------------------------------------------------|
+| TRANSACTION      |  Nazwa produktu, data                          |
+|-------------------------------------------------------------------|
+| DELIVERY         |   Data                                         |
+|-------------------------------------------------------------------|
+
+3) Wciskam przycisk search 
+4) Zostaje wyswietlona lista znalezionych rekordow
+5) Z listy wybieram interesujacy mnie rekord
+6) Wciskam Edit
+7) Pojawia sie oknow kontekstowe / zostaje przeniesiony na podstrone z dodawaniem (Jak łatwiej jest zrobic) w ktorym wszystkie pola sa wypelnione obecnymi danymi
+8) Zmieniam pola 
+9) Wciskam OK
+10) rekord zostaje zmodyfikowany
+
+Jesli jakies pole pozostaje puste LUB nie spelnia wymagan dotyczacych validity check'a  Zostaje poinformowany ze wprowadzone dane nie sa poprawne
+
+Wszystkie zmiany poza produktami odbywaja sie w miejscu.
+Edycja dostawy jest mozliwa tylko jesli nie zostala zrealizowana 
+
+REMOVE - 
+1) Wybieram interesujaca mnie zakladke 
+2) Wpisuje w wyszukiwarke interesujace mnie dane (Wykonanie wyszukiwania bez podanych danych powoduje wyswietlenie listy wszystkich rekordow DLA : SKLEPOW, PRACOWNIKOW. PRODUKTOW)
+3) Wciskam przycisk search 
+4) Zostaje wyswietlona lista znalezionych rekordow
+5) Z listy wybieram interesujacy mnie rekord
+6) Wciskam REMOVE
+7) Z bazy zostaje usuniety rekord
+
+Rekord Zostaje usuniety w przypadku : 
+Transaction - Product state powinien zostac zmodyfikowany tak zeby odzwierciedlal stan bez danej tranzakcji
+Delivery - Jezeli dostawa ma status Do zrealizowania 
+
+Rekord nie zostaje usuniety : 
+
+SHOP - sklep zostaje ustawiony jako nieaktywny (Nie mozna wykonywac zadnych operacji powiazanych z nieaktywnym sklepem - nie mozna do niego dodac / edytowac / usunac pracownika, dostawy, transakcji)
+Worker - pracownik zostaje ustawiony jako nieaktywny oraz jego nazwisko i adress EMAIL zostaja zastapione przez "X"
+PRODUCT - product nie zostaje usuniety 
+DELIVERY - jezeli dostawa ma status "wykonana" lub "w trakcie"  nie mozna jej usunac 
+
+//************************** ANALYSYS *******************************/
+
+1) wybieram zakladke ANALYSYS
+
+"OBSZAR WYKRESU" - czesc w ktorej znajduje sie wykres, guzik "ADD CHART", "REMOVE CHART", "SAVE CHART", "ADD FILTER", ORAZ LISTA FILTROW
+
+2) Pojawia sie odpowiednia podstrona z 1 "OBSZARem WYKRESu"
+3) ADD CHART tworzy kolejy "OBSZAR WYKRESU" pod juz istniejacym
+4) "REMOVE CHART" usuwa odpowiadajacy mu "OBSZAR WYKRESU"
+5) "SAVE CHART" Zapisuje odpowiadajacy mu wykres do PLIKU : "@DATA_@RODZAJ_WYKRESU.png"
+6) WYBOR RODZAJU wykresu powoduje narysowanie wykresu zgodnie z jego charakterystyka dla wszystkich dostepnych danych
+7) Kazdy z rodzajow wykresow ma dostepny zbior filtrow (CHARTS.txt)
+8) Wybieram Odpowiedni filtr - i ustawiam go
+
+Dla wszystkich filtrow poza Okresem czasu wybieram konkretne produkty,sklepy etc. z listy i wybieram ADD FILTER
+Dla okresu czasu wybieram przedzial czasowy OD DO i wybieram add filter
+
+Kazdorazowe Dodanie filtra powoduje regeneracje wykresu 
+Kazdy filtr moze byc aktywy lub nieaktywny - tylko aktywne filtry wplywaja na generacje wykresu
+Odznaczenie i zaznaczenie aktywnosci filtra powoduje regeneracje wykresu
+
+
+

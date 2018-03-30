@@ -1,0 +1,61 @@
+Validators
+
+Numer Telefonu : "0-9\ +" // Format: +48 696 123 456
+1) Zaczyna sie od +
+2) skalada sie z 11 cyfr
+
+Imie i Nazwisko : "a-zA-Z\ " // Format: Jan Kowalski
+1) Kazde slowo zaczyna sie z duzej litery
+2) Zawsze 2 slowa Imie + Nazwisko
+3) Kazde ze slow minimum 3 litery
+
+Nazwa Sklepu : "a-zA-Z0-9\ @#" // Format: "Super Sklep @"
+1) Zaczyna sie z duzej litery
+2) Minimum 4 litery
+
+Nazwa produktu : "a-zA-Z0-9\ @#" // Format: "Odkurzacz"
+1) Zaczyna sie z duzej litery
+2) Minimum 4 litery
+
+Model Produktu : "a-zA-Z0-9\ \@\#\-" // Format: "AZX-420"
+1) Minimum 2 litery
+
+Haslo : "a-zA-Z0-9!@#$%^&*" // Format : "B@k3m0n0g@t@r1"
+1) Minimalna dlugosc 6 znakow
+2) Maksymalna dlugosc 10 znakow
+
+Producer : "a-zA-Z0-9\ @#" // Format: "Zelmer"
+1) Zaczyna sie z duzej litery
+2) Minimum 4 litery
+
+Cena "0-9\." // Format 125.36
+1) Cena jest wieksza od 0
+2) Cena zawiera zawsze czesci dziesietne (. przed dwoma ostatnimi cyframi)
+3) Tylko jedna .
+4) Cena sprzedazy wieksza niz cena kupna (Ostrzegac managera - Produkt i tak powinien zostac wprowadzony)
+
+Data : dzien.miesiac.rok //Format : 01.01.2016
+1) dzien < 31
+2) miesiac < 12
+
+Data OD (przyjecie pracownika) : "01.01.2016"
+1) dzien < 31
+2) miesiac < 12
+3) data OD jest wczesniej niz data DO
+
+Data OD (przyjecie pracownika) : "01.01.2016"
+1) dzien < 31
+2) miesiac < 12
+3) data DO jest Pozniej niz data OD
+
+Ilosc : "0-9" // Format : 2
+1) wieksza od 0
+
+Wyplata : "0-9\." // Format 125.36
+1) Cena jest wieksza od 0
+2) Cena zawiera zawsze czesci dziesietne (. przed dwoma ostatnimi cyframi)
+3) Tylko jedna .
+
+
+
+

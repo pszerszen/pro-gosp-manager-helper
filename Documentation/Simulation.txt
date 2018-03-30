@@ -1,0 +1,20 @@
+Symulacja produktu :
+
+
+Dla zadanego okresu czasu Zadanej Marki i zadanej nowej ceny
+
+1) wyszukiwanie produktów podobnych (Rodzaj) => SERIA_A
+2) wyszukiwanie produktów podobnych (Marka)  => SERIA_B
+3) wyszukiwanie produktów podobnych (Cena)   => SERIA_C
+
+Dla znalezionych danych tworzymy teoretyczny przebieg sprzedazy:
+
+Sumujemy sprzedane sztuki w kazdej serii w tygodniu
+
+Sumujemy w kazdym tygodniu ilosc sprzedanych sztuk wg wzoru :
+
+(3*S_A + 1,5*S_B + 1*S_C)/5,5
+
+Otrzymany wynik w kazdym tygodniu mnozymy przez (1 +/- 0.5 * Procentowa roznica w cenie z produktem w Serii C)
+
+Na podstawie tak przygotowanej serii wyswietlamy Prognozowany wykres sprzedazy od czasu

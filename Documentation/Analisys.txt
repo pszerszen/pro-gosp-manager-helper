@@ -1,0 +1,50 @@
+Prognozowanie sprzedazy:
+
+Dla wybranego produktu wyliczamy zapotrzebowanie na 3 sposoby (dla ilosci sprzedanych sztuk):
+1) Metoda Naiwna
+2) Srednia ruchoma
+3) wygladzenie wykladnicze
+(http://prologistica.pl/bazawiedzy/prognozowanie-popytu-i-planowanie-sprzedazy.html)
+
+Uzytkownikowi przedstawiamy tylko wybrany przez niego wariant
+
+
+
+Prognozowanie zapotrzebowania:
+
+Dla wybranego produktu wyliczamy zapotrzebowanie na 3 sposoby (dla ilosci dostaw):
+1) Metoda Naiwna
+2) Srednia ruchoma
+3) wygladzenie wykladnicze
+(http://prologistica.pl/bazawiedzy/prognozowanie-popytu-i-planowanie-sprzedazy.html)
+
+Uzytkownikowi przedstawiamy tylko wybrany przez niego wariant
+
+Korelacja miedzy sprzedazy produktow:
+
+Dla wybranych 2 produktow oraz zadanego okresu czasu liczymy wspolczynnik korelacji :
+(http://www.naukowiec.org/wzory/statystyka/wspolczynnik-korelacji-r-pearsona_22.html)
+
+|r|=0 - brak korelacji
+0,0<|r|≤0,1 - korelacja nikła
+0,1<|r|≤0,3 - korelacja słaba 
+0,3<|r|≤0,5 - korelacja przeciętna
+0,5<|r|≤0,7 - korelacja wysoka
+0,7<|r|≤0,9 - korelacja bardzo wysoka
+0,9<|r|<1,0 - korelacja niemal pełna
+|r|=1 - korelacja pełna
+
+
+
+Analiza wariancyjna:
+
+Dla wybranego produktu i okresu czasu liczymy wariancje z wszystkich dostepnych probek (liczbe sprzedanych sztuk towaru per dzien)
+Na podstawie tych danych liczymy wariancje oraz odchylenie standardowe
+(http://matematyka.pisz.pl/strona/1028.html)
+
+Trend:
+
+Dla wybranego produktu i okreslonego czasu tworzymy wykres sprzedanych produktow od czasu i wyznaczamy krzywa trendu.
+(http://cezarywalenciuk.pl/blog/programing/post/liniowa-funkcja-trendu)
+
+Na wykresie kreslimy linie trendu i informujemy uzytkownika o tym czy trend jest rosnacy czy malejacy

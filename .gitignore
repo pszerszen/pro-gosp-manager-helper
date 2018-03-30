@@ -1,0 +1,22 @@
+target/
+
+.idea/
+*.iml
+
+#java specific
+*.class
+
+# eclipse specific files
+.settings/
+.classpath
+.project
+*.jpage
+
+*.ucls
+/bin/
+
+Piotr/
+pszerszen/
+Andrzej/
+/store/filters/Marek
+/store/.gitignore

@@ -1,0 +1,42 @@
+Wykresy :
+
+Zestawienie zyskow od czasu [Wykres Liniowy] suma transakcji z danego okresu per sprzedana sztuka per cena 
+
+Filtry :
+
+Sklep
+pracownik
+okres czasu
+Produkt
+
+Zestawienie Sprzedanych towarow od czasu [Wykres slupkowy] ilość towarów 
+
+Filtry:
+Okres czasu
+Sklep
+Produkt
+Pracownik
+
+Zestawienie Dostaw od Czasu [Wykres slupkowy] ilość sztuk dostarczonych produktów
+
+Filtry :
+Produkt
+Sklep
+Okres Czasu
+
+Zestawieni zyskow [diagram kołowy] dana wartość procetu = zyski z danego produktu(ów) / zyski ogólne (wszystkie transakcje) (bez żadnych filltrów bierzemy wszystkie produkty)
+
+Filtry:
+
+Okres czasu
+Produkt
+Sklep
+Pracownik
+
+Zestawienie ilosci produktow [diagram slupkowy] x - produkty y - ilość 
+
+Filtry:
+
+Sklep
+Produkt
+

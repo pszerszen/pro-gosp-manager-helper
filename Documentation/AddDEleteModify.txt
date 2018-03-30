@@ -1,0 +1,76 @@
+AddDEleteModify.txt
+
+Sprzedawca:
+//*************************FIND************************//
+
+Moze przeszukiwac wszystkie bazy danych.
+
+//*************************ADD*************************//
+
+MOZE DODAWAC TRANSAKCJE
+
+//*************************MOD*************************//
+
+Moze modyfikowac :
+
+Swoje Dane Personalne (Imie i Nazwisko)
+Swoje Haslo
+
+//*************************DEL*************************//
+
+NIE moze usuwac nic z bazy
+
+Zarzadca Sklepu:
+//*************************FIND************************//
+
+Moze przeszukiwac wszystkie bazy danych.
+
+//*************************ADD*************************//
+
+MOZE DODAWAC PRACOWNIKA (tylko we wlasnym sklepie)
+MOZE DODAWAC TRANSAKCJE
+MOZE DODAWAC DOSTAWY (tylko zwiazane ze swoim sklepem)
+MOZE DODAWAC PRODUKTY
+
+//*************************MOD*************************//
+
+Moze modyfikowac :
+
+Swoje Dane Personalne (Imie i Nazwisko)
+Swoje Haslo
+MOZE MODYFIKOWAC DANE PRACOWNIKA (Nie moze modyfikowac Hasla i daty OD)
+MOZE MODYFIKOWAC DANE DOSTAWY (TYLKO jezeli dostawa jest zaplanowana - nie moze byc w trakcje realizacji)
+MOZE MODYFIKOWAC PRODUKTY
+
+//*************************DEL*************************//
+
+MOZE USUWAC PRACOWNIKOW
+
+Manager:
+//*************************FIND************************//
+
+Moze przeszukiwac wszystkie bazy danych.
+
+//*************************ADD*************************//
+
+MOZE DODAWAC PRACOWNIKA
+MOZE DODAWAC TRANSAKCJE
+MOZE DODAWAC DOSTAWY
+MOZE DODAWAC PRODUKTY
+MOZE DODAWAC SKLEPY
+
+//*************************MOD*************************//
+
+Moze modyfikowac :
+
+Swoje Dane Personalne (Imie i Nazwisko)
+Swoje Haslo
+MOZE MODYFIKOWAC DANE PRACOWNIKA (Nie moze modyfikowac Hasla i daty OD )
+MOZE MODYFIKOWAC DANE DOSTAWY (TYLKO jezeli dostawa jest zaplanowana - nie moze byc w trakcje realizacji)
+MOZE MODYFIKOWAC PRODUKTY
+MOZE Modyfikowac dane SKLEPU
+
+//*************************DEL*************************//
+
+MOZE USUWAC PRACOWNIKOW
+MOZE USUWAC SKLEPY
